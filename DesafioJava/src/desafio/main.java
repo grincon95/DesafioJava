@@ -6,7 +6,8 @@ public class main {
 
         /*Instancia para get placa */
         Problema problema=new Problema();
-        System.out.println(problema.getEntrada());
+        System.out.println(problema.convertir("Hola"));
+
 
     }//
 

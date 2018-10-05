@@ -1,29 +1,56 @@
 package desafio;
 import mx.com.sintelti.desafios.oporx.Solucion;
 
-import static sun.invoke.util.ValueConversions.cast;
+import java.util.ArrayList;
 
 public class Problema implements Solucion {
 
-    private String entrada;
+    int lentgth;
+    String salida;
+    char chars;
+    String entrada;
+    String temp;
 
-    //constructor sin parametros
-public Problema(){
-    entrada ="Desconocido";
-}//fin del contructor
+    public Problema() {
+        this.lentgth = 0;
+        LimpiarValores();
+    }
 
+    private void LimpiarValores() {
+        salida = "";
+        chars = 'x';
+        entrada = "";
+    }
 
-    @Override
     public String convertir(String entrada) {
-
-        entrada=entrada.replaceAll("o","x");
-
-        return entrada;
+        lentgth = 0;
+        LimpiarValores();
+        int acumulado = 0;
+        temp = entrada;
+        ArrayList<String> Lista = new ArrayList<String>();
+        for (char caracter : entrada.toCharArray()) {
+            for (int b = 0; b < entrada.length(); b++) {
+                this.temp = entrada.substring(b);
+                this.entrada = temp.substring(0, 1);
+                Lista.add(this.entrada);
+            }
+            for (int x = 0; x <= salida.length(); x++) {
+                salida = entrada.replace('o',chars);
+                for (String caracterCadena : Lista) {
+                    if (caracterCadena.equals("o")) {
+                        caracterCadena = "";
+                        acumulado++;
+                        for (int contador = 0; contador <= acumulado; contador++) {
+                            caracterCadena ="x";
+                        }
+                    }
+                    this.salida += caracterCadena;
+                }
+            }
+        }
+        return salida;
     }
 
 
-    public String getEntrada() {
-    entrada=convertir(entrada);
-        return entrada;
-    }
-}
+
+}//fin de la clase
