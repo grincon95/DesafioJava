@@ -5,14 +5,14 @@ import java.util.ArrayList;
 
 public class Problema implements Solucion {
 
-    int lentgth;
-    String salida;
-    char chars;
-    String entrada;
-    String temp;
+    private int contador;
+    private String salida;
+        private String entrada;
+    private String temp;
+   private  char chars;
+
 
     public Problema() {
-        this.lentgth = 0;
         LimpiarValores();
     }
 
@@ -23,7 +23,7 @@ public class Problema implements Solucion {
     }
 
     public String convertir(String entrada) {
-        lentgth = 0;
+        contador = 0;
         LimpiarValores();
         int acumulado = 0;
         temp = entrada;
