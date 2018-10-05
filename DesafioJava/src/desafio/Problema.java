@@ -6,36 +6,31 @@ import java.util.ArrayList;
 public class Problema implements Solucion {
 
     private int contador;
-    private String salida;
-        private String entrada;
-    private String temp;
+    private String cadenaSalida;
+    private String cadenaEntrada;
+    private String variable;
    private  char chars;
 
 
     public Problema() {
-        LimpiarValores();
-    }
-
-    private void LimpiarValores() {
-        salida = "";
+        cadenaSalida = "";
         chars = 'x';
-        entrada = "";
+        cadenaEntrada = "";
     }
 
     public String convertir(String entrada) {
         contador = 0;
-        LimpiarValores();
         int acumulado = 0;
-        temp = entrada;
+        variable = entrada;
         ArrayList<String> Lista = new ArrayList<String>();
         for (char caracter : entrada.toCharArray()) {
             for (int b = 0; b < entrada.length(); b++) {
-                this.temp = entrada.substring(b);
-                this.entrada = temp.substring(0, 1);
-                Lista.add(this.entrada);
+                this.variable = entrada.substring(b);
+                this.cadenaEntrada = variable.substring(0, 1);
+                Lista.add(this.cadenaEntrada);
             }
-            for (int x = 0; x <= salida.length(); x++) {
-                salida = entrada.replace('o',chars);
+            for (int x = 0; x <= cadenaSalida.length(); x++) {
+                cadenaSalida = entrada.replace('o',chars);
                 for (String caracterCadena : Lista) {
                     if (caracterCadena.equals("o")) {
                         caracterCadena = "";
@@ -44,11 +39,11 @@ public class Problema implements Solucion {
                             caracterCadena ="x";
                         }
                     }
-                    this.salida += caracterCadena;
+                    this.cadenaSalida += caracterCadena;
                 }
             }
         }
-        return salida;
+        return cadenaSalida;
     }
 
 
